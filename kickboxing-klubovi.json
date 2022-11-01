@@ -1,0 +1,214 @@
+[{
+        "naziv": "KBK KUTINA",
+        "klubid": 1,
+        "godinaosnivanja": 1998,
+        "sjedište": "Kutina",
+        "država": "Hrvatska",
+        "email": "josip.cerovec@sk.t-com.hr",
+        "članovi": [{
+                "oib": "11111111111",
+                "briskaznice": 1,
+                "ime": "Ana",
+                "prezime": "Anić",
+                "datumrođenja": "2005-01-01",
+                "klubid": 1,
+                "uzrast": "Juniori",
+                "težina": "-55 kg",
+                "spol": "Ž"
+            }, {
+                "oib": "22222222222",
+                "briskaznice": 2,
+                "ime": "Ivo",
+                "prezime": "Ivić",
+                "datumrođenja": "2011-02-02",
+                "klubid": 1,
+                "uzrast": "Kadeti",
+                "težina": "-69 kg",
+                "spol": "M"
+            }, {
+                "oib": "12345678926",
+                "briskaznice": 17,
+                "ime": "Marin",
+                "prezime": "Erlić",
+                "datumrođenja": "2001-12-14",
+                "klubid": 1,
+                "uzrast": "Seniori",
+                "težina": "-69 kg",
+                "spol": "M"
+            }
+        ],
+        "trener": {
+            "oib": "12345678914",
+            "briskaznice": 9,
+            "ime": "Ivan",
+            "prezime": "Babić",
+            "datumrođenja": "1965-07-21",
+            "klubid": 1,
+            "licencado": "2027-01-01"
+        }
+    }, {
+        "naziv": "KBK IMPACT",
+        "klubid": 2,
+        "godinaosnivanja": 2011,
+        "sjedište": "Našice",
+        "država": "Hrvatska",
+        "email": "stjepan.paska@gmail.com",
+        "članovi": [{
+                "oib": "33333333333",
+                "briskaznice": 3,
+                "ime": "Mate",
+                "prezime": "Matić",
+                "datumrođenja": "1993-03-03",
+                "klubid": 2,
+                "uzrast": "Seniori",
+                "težina": "-75 kg",
+                "spol": "M"
+            }, {
+                "oib": "12345678920",
+                "briskaznice": 11,
+                "ime": "Marina",
+                "prezime": "Petrović",
+                "datumrođenja": "2008-08-28",
+                "klubid": 2,
+                "uzrast": "Kadeti",
+                "težina": "-46 kg",
+                "spol": "Ž"
+            }, {
+                "oib": "12345678922",
+                "briskaznice": 13,
+                "ime": "Boris",
+                "prezime": "Buntić",
+                "datumrođenja": "1999-03-18",
+                "klubid": 2,
+                "uzrast": "Seniori",
+                "težina": "-91 kg",
+                "spol": "M"
+            }, {
+                "oib": "12345678927",
+                "briskaznice": 18,
+                "ime": "Marta",
+                "prezime": "Kovačić",
+                "datumrođenja": "2007-02-19",
+                "klubid": 2,
+                "uzrast": "Kadeti",
+                "težina": "-55 kg",
+                "spol": "Ž"
+            }
+        ],
+        "trener": {
+            "oib": "12345678913",
+            "briskaznice": 8,
+            "ime": "Luka",
+            "prezime": "Lukić",
+            "datumrođenja": "1970-06-10",
+            "klubid": 2,
+            "licencado": "2025-01-01"
+        }
+    }, {
+        "naziv": "KBK BTI",
+        "klubid": 3,
+        "godinaosnivanja": 1997,
+        "sjedište": "Zabok",
+        "država": "Hrvatska",
+        "email": "zvonko.kar@kr.t-com.hr",
+        "članovi": [{
+                "oib": "12345678910",
+                "briskaznice": 5,
+                "ime": "Petar",
+                "prezime": "Petrić",
+                "datumrođenja": "1995-03-10",
+                "klubid": 3,
+                "uzrast": "Seniori",
+                "težina": "-81 kg",
+                "spol": "M"
+            }, {
+                "oib": "12345678921",
+                "briskaznice": 12,
+                "ime": "Zoran",
+                "prezime": "Kovač",
+                "datumrođenja": "2004-06-21",
+                "klubid": 3,
+                "uzrast": "Juniori",
+                "težina": "-84 kg",
+                "spol": "M"
+            }, {
+                "oib": "12345678923",
+                "briskaznice": 14,
+                "ime": "Željka",
+                "prezime": "Mitrović",
+                "datumrođenja": "2005-05-10",
+                "klubid": 3,
+                "uzrast": "Juniori",
+                "težina": "-60 kg",
+                "spol": "Ž"
+            }
+        ],
+        "trener": {
+            "oib": "12345678915",
+            "briskaznice": 10,
+            "ime": "Nora",
+            "prezime": "Novak",
+            "datumrođenja": "1985-09-09",
+            "klubid": 3,
+            "licencado": "2028-01-01"
+        }
+    }, {
+        "naziv": "KBK SPARTAN GYM",
+        "klubid": 4,
+        "godinaosnivanja": 2006,
+        "sjedište": "Zagreb",
+        "država": "Hrvatska",
+        "email": "acopupac@gmail.com",
+        "članovi": [{
+                "oib": "12345678911",
+                "briskaznice": 6,
+                "ime": "Lorena",
+                "prezime": "Horvat",
+                "datumrođenja": "2010-04-20",
+                "klubid": 4,
+                "uzrast": "Kadeti",
+                "težina": "-37 kg",
+                "spol": "F"
+            }, {
+                "oib": "12345678912",
+                "briskaznice": 7,
+                "ime": "Iva",
+                "prezime": "Grgić",
+                "datumrođenja": "2006-05-30",
+                "klubid": 4,
+                "uzrast": "Juniori",
+                "težina": "-65 kg",
+                "spol": "F"
+            }, {
+                "oib": "12345678924",
+                "briskaznice": 15,
+                "ime": "Nora",
+                "prezime": "Stanić",
+                "datumrođenja": "2000-03-13",
+                "klubid": 4,
+                "uzrast": "Seniori",
+                "težina": "-50 kg",
+                "spol": "Ž"
+            }, {
+                "oib": "12345678925",
+                "briskaznice": 16,
+                "ime": "Senka",
+                "prezime": "Božić",
+                "datumrođenja": "1994-10-10",
+                "klubid": 4,
+                "uzrast": "Seniori",
+                "težina": "-70 kg",
+                "spol": "Ž"
+            }
+        ],
+        "trener": {
+            "oib": "44444444444",
+            "briskaznice": 4,
+            "ime": "Marija",
+            "prezime": "Marić",
+            "datumrođenja": "1980-04-04",
+            "klubid": 4,
+            "licencado": "2030-01-01"
+        }
+    }
+]

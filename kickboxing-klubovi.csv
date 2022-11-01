@@ -1,0 +1,15 @@
+naziv,klubid,godinaosnivanja,sjedište,država,email,oib,briskaznice,ime,prezime,datumrođenja,klubid,uzrast,težina,spol,oibtrener,briskaznicetrener,imetrener,prezimetrener,datumrođenjatrener,klubidtrener,licencado
+KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,12345678925,16,Senka,Božić,1994-10-10,4,Seniori,-70 kg,Ž,44444444444,4,Marija,Marić,1980-04-04,4,2030-01-01
+KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,12345678924,15,Nora,Stanić,2000-03-13,4,Seniori,-50 kg,Ž,44444444444,4,Marija,Marić,1980-04-04,4,2030-01-01
+KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,12345678912,7,Iva,Grgić,2006-05-30,4,Juniori,-65 kg,F,44444444444,4,Marija,Marić,1980-04-04,4,2030-01-01
+KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,12345678911,6,Lorena,Horvat,2010-04-20,4,Kadeti,-37 kg,F,44444444444,4,Marija,Marić,1980-04-04,4,2030-01-01
+KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,12345678927,18,Marta,Kovačić,2007-02-19,2,Kadeti,-55 kg,Ž,12345678913,8,Luka,Lukić,1970-06-10,2,2025-01-01
+KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,12345678922,13,Boris,Buntić,1999-03-18,2,Seniori,-91 kg,M,12345678913,8,Luka,Lukić,1970-06-10,2,2025-01-01
+KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,12345678920,11,Marina,Petrović,2008-08-28,2,Kadeti,-46 kg,Ž,12345678913,8,Luka,Lukić,1970-06-10,2,2025-01-01
+KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,33333333333,3,Mate,Matić,1993-03-03,2,Seniori,-75 kg,M,12345678913,8,Luka,Lukić,1970-06-10,2,2025-01-01
+KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,12345678926,17,Marin,Erlić,2001-12-14,1,Seniori,-69 kg,M,12345678914,9,Ivan,Babić,1965-07-21,1,2027-01-01
+KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,22222222222,2,Ivo,Ivić,2011-02-02,1,Kadeti,-69 kg,M,12345678914,9,Ivan,Babić,1965-07-21,1,2027-01-01
+KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,11111111111,1,Ana,Anić,2005-01-01,1,Juniori,-55 kg,Ž,12345678914,9,Ivan,Babić,1965-07-21,1,2027-01-01
+KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,12345678923,14,Željka,Mitrović,2005-05-10,3,Juniori,-60 kg,Ž,12345678915,10,Nora,Novak,1985-09-09,3,2028-01-01
+KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,12345678921,12,Zoran,Kovač,2004-06-21,3,Juniori,-84 kg,M,12345678915,10,Nora,Novak,1985-09-09,3,2028-01-01
+KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,12345678910,5,Petar,Petrić,1995-03-10,3,Seniori,-81 kg,M,12345678915,10,Nora,Novak,1985-09-09,3,2028-01-01
