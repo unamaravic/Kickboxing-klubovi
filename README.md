@@ -35,7 +35,7 @@ Tema projekta su kickboxing klubovi, a skup podataka sadrži njihove najvažnije
 - Datum preuzimanja podataka:  31.10.2022.
 - Korisni linkovi: http://www.crokickboxing.hr/wp-content/uploads/2020/04/HKBS-status-%C4%8Dlanova-u-2020.-godini-rev.2-25.02.2020-za-objavu-1.pdf  
 - Ključne riječi: klub, kickboxing, trener, član
-- Posljednja izmjena u repozitoriju: 2.11.2022.
+- Posljednja izmjena u repozitoriju: 10.11.2022.
 - Dostupni formati podataka: CSV, JSON  
 
 
