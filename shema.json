@@ -1,0 +1,132 @@
+{ 
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
+	"$id": "https://example.com/kickboxing-klubovi.schema.json",
+	"type": "array", 
+	"title": "Kickboxing klubovi",
+	"description": "Popis kickboxing klubova",
+	"items": {
+		"type": "object",
+		"title": "Klub",
+		"description": "Kickboxing klub",
+		"properties" : {
+			"naziv": {
+				"type": "string",
+				"description": "Ime kluba"
+			},
+			"klubid": {
+				"type": "integer", 
+				"description": "Identifikator kluba"			
+			},
+			"godinaosnivanja": {
+				"type": "integer",
+				"description": "Godina osnivanja kluba"
+			},
+			"sjedište": {
+				"type": "string",
+				"description": "Mjesto u kojem se nalazi sjedište kluba"
+			},
+			"država": {
+				"type": "string", 
+				"description": "Država u kojoj se nalazi sjedište kluba"
+			},
+			"email": {
+				"type": "string",
+				"description": "Email kluba ili odgovorne osobe"
+			},
+			"članovi": {
+				"type": "array",
+				"title": "Članovi",
+				"description": "Popis članova kluba",
+				"items": {
+					"type": "object", 
+					"title": "Član",
+					"description": "Član kluba",
+					"properties": {
+						"oib": {
+							"type": "string", 
+							"description": "OIB člana"
+						},
+						"briskaznice": {
+							"type": "integer", 
+							"description": "Identifikator osobe"
+						},
+						"ime": {
+							"type": "string", 
+							"description": "Ime člana"
+						},
+						"prezime": {
+							"type": "string", 
+							"description": "Prezime člana"
+						},
+						"datumrođenja": {
+							"type": "string", 
+							"description": "Datum rođenja člana"
+						},
+						"klubid": {
+							"type": "integer", 
+							"description": "Identifikator kluba"
+						},
+						"uzrast": {
+							"type": "string", 
+							"description": "Dobna kategorija člana"
+						},
+						"težina": {
+							"type": "string", 
+							"description": "Težinska kategorija člana"
+						},
+						"spol": {
+							"type": "string", 
+							"description": "Spol člana"
+						}
+					},
+					"required": [
+						"oib", "briskaznice", "ime", "prezime", "datumrođenja", "klubid", "uzrast", "težina", "spol"
+					]
+				}
+			},
+			"trener": {
+				"type": "object", 
+				"title": "Trener",
+				"description": "Trener kluba", 
+				"properties": {
+					"oib": {
+						"type": "string", 
+						"description": "OIB trenera"
+					},
+					"briskaznice": {
+						"type": "integer", 
+						"description": "Identifikator osobe"
+					},
+					"ime": {
+						"type": "string", 
+						"description": "Ime trenera"
+					},
+					"prezime": {
+						"type": "string", 
+						"description": "Prezime trenera"
+					},
+					"datumrođenja": {
+						"type": "string", 
+						"description": "Datum rođenja trenera"
+					},
+					"klubid": {
+						"type": "integer", 
+						"description": "Identifikator kluba"
+					},
+					"licencado": {
+						"type": "string", 
+						"description": "Datum isteka licence"
+					}
+				},
+				"required": [
+					"oib", "briskaznice", "ime", "prezime", "datumrođenja", "klubid", "licencado"
+				]
+			}
+		},
+		"required": [
+			"naziv", "klubid", "godinaosnivanja", "sjedište", "država", "email", "članovi", "trener"
+		]
+		
+	}
+	
+}

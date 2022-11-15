@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+        <title><%= title %></title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center text-primary mt-3 mb-3">Kickboxing klubovi</h1>
+
+            <div class="card">
+                <div class="card-header">Kickboxing klubovi</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        
+                        <table id="klubclantrener" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                  <th>Naziv</th>
+                                  <th>Godina osnivanja</th>
+                                  <th>Sjedište</th>
+                                  <th>Država</th>
+                                  <th>Email</th>
+                                  <th>OIB člana</th>
+                                  <th>Broj iskaznice člana</th>
+                                  <th>Ime člana</th>
+                                  <th>Prezime člana</th>
+                                  <th>Datum rođenja člana</th>
+                                  <th>Uzrast</th>
+                                  <th>Težina</th>
+                                  <th>Spol</th>
+                                  <th>OIB trenera</th>
+                                  <th>Ime trenera</th>
+                                  <th>Prezime trenera</th>
+                                  <th>Datum rođenja trenera</th>
+                                  <th>Istek licence</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <div>
+                          <a class="csv" href="/export" download>Preuzmi filtrirane podatke - CSV</a>
+                          <a class="json" href="" download>Preuzmi filtrirane podatke - JSON</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+  </body>
+</html>
+
+<script>
+  $(document).ready(function(){
+    var dataTable = $('#klubclantrener').DataTable({
+      'processing': true,
+      'serverSide': true,
+      'serverMethod' : 'get',
+      'ajax' : {
+        'url' : '/datatable/get_data'
+      },
+      'aaSorting' : [],
+      'columns' : [
+        { data : 'naziv' },
+        { data : 'godina_osnivanja'},
+        { data : 'sjedište' },
+        { data : 'država' },
+        { data : 'email' },
+        { data : 'oib_člana' },
+        { data : 'broj_iskaznice_člana' },
+        { data : 'ime_člana' },
+        { data : 'prezime_člana' },
+        { data : 'datum_rođenja_člana' },
+        { data : 'uzrast' },
+        { data : 'težina' },
+        { data : 'spol' },
+        { data : 'oib_trenera' },
+        { data : 'ime_trenera' },
+        { data : 'prezime_trenera' },
+        { data : 'datum_rođenja_trenera' },
+        { data : 'istek_licence' }
+      ]
+    });
+  });
+</script>
