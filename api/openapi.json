@@ -1,0 +1,212 @@
+{
+    "openapi": "1.0.0",
+    "info": {
+        "title": "Kickboxing klubovi",
+        "description": "Popis kickboxing klubova",
+        "version": "1.0.0",
+        "contact": {
+            "name":"Una Maravić",
+            "url": "http://www.example.com/support",
+            "email": "una.maravic@fer.hr"
+        },
+        "licence":{
+            "name":"CC0 - 1.0 license",
+            "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+    },
+	"servers": {
+		"url": "http://localhost:3000/api/v1"
+	},
+    "paths":{
+        "/":{
+            "get": {
+                "summary": "Dohvaća cijelu kolekciju",
+                "description": "Vraća sve zapise klubova",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Fetch succesful"
+                    },
+                    "500":{
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/{id}":{
+            "get": {
+                "summary": "Dohvaća jedan zapis iz kolekcije",
+                "description": "Vraća zapis sa zadanim id-om iz kolekcije",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Fetch succesful"
+                    },
+                    "400":{
+                        "description": "Id was written wrong"
+                    },
+                    "404":{
+                        "description":"Resource not found"
+                    },
+                    "500":{
+                        "description":"Internal server error"
+                    }
+                }
+            },
+			"parameters": [
+				{
+				  "name": "id",
+				  "in": "path",
+				  "description": "Identifikator zapisa u kolekciji",
+				  "required": true,
+				  "schema": {
+					"type": "integer"
+				  }
+				}
+			]
+        },
+        "/prikaz/klubovi":{
+            "get": {
+                "summary": "Dohvaća kolekciju klubova",
+                "description": "Vraća popis svih klubova",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Fetch succesful"
+                    },
+                    "500":{
+                        "description":"Internal server error"
+                    }
+                }
+            },
+			"post": {
+                "summary": "Dodaje zapis u kolekciju",
+                "description": "Vraća prazno polje",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "201": {
+                        "description": "Insert succesful"
+                    },
+                    "500":{
+                        "description": "Insert not succesfull"
+                    },
+					"409": {
+						"description": "Already exists"
+					}
+                }
+            }
+        },
+        "/prikaz/klubovi/{klubid}":{
+            "get": {
+                "summary": "Dohvaća klub",
+                "description": "Vraća klub sa zadanim identifikatorom",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Fetch succesful"
+                    },
+                    "400":{
+                        "description": "Id was written wrong"
+                    },
+                    "404":{
+                        "description":"Resource not found"
+                    },
+                    "500":{
+                        "description":"Internal server error"
+                    }
+                }
+            },
+			"put": {
+                "summary": "Mijenja podatak o klubu sa zadanim identifikatorom",
+                "description": "Vraća prazno polje",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Update succesful"
+                    },
+                    "400":{
+                        "description": "Id was written wrong"
+                    },
+                    "404":{
+                        "description":"Resource not found"
+                    },
+                    "500":{
+                        "description": "Internal server error"
+                    }
+                }
+            },
+			"delete": {
+                "summary": "Briše zapis sa zadanim identifikatorom",
+                "description": "Vraća prazno polje",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Delete succesful"
+                    },
+                    "400":{
+                        "description": "Id was written wrong"
+                    },
+                    "404":{
+                        "description":"Resource not found"
+                    },
+                    "500":{
+                        "description": "Internal server error"
+                    }
+                }
+            },
+			"parameters": [
+				{
+				  "name": "klubid",
+				  "in": "path",
+				  "description": "Identifikator kluba",
+				  "required": true,
+				  "schema": {
+					"type": "integer"
+				  }
+				}
+			]
+        },
+        "/prikaz/clanovi":{
+            "get": {
+                "summary": "Dohvaća kolekciju članova",
+                "description": "Vraća popis svih članova klubova",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Fetch succesful"
+                    },
+                    "500":{
+                        "description":"Internal server error"
+                    }
+                }
+            }
+        },
+		"/prikaz/treneri":{
+            "get": {
+                "summary": "Dohvaća kolekciju trenera",
+                "description": "Vraća popis svih trenera",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Fetch succesful"
+                    },
+                    "500":{
+                        "description":"Internal server error"
+                    }
+                }
+            }
+        },
+        "/prikaz/openapi":{
+            "get": {
+                "summary": "Dohvaća OpenAPI dokumentaciju",
+                "description": "Vraća dokumentaciju za ostvareni API",
+                "produces": ["aplication/json"],
+                "responses": {
+                    "200": {
+                        "description": "Fetch succesful"
+                    }
+                }
+            }
+        }
+    }
+}
