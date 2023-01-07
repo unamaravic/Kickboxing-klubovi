@@ -48,7 +48,6 @@ router.get('/get_data', function(req, res, next) {
       OR ime_člana LIKE ${search_value_usporedi}
       OR prezime_člana LIKE ${search_value_usporedi}
       OR datum_rođenja_člana = ${search_value_datum}
-      OR uzrast LIKE ${search_value_usporedi}
       OR težina LIKE ${search_value_usporedi}
       OR spol LIKE ${search_value_usporedi}
       OR oib_trenera LIKE ${search_value_usporedi}
@@ -59,8 +58,8 @@ router.get('/get_data', function(req, res, next) {
      )
   `;
 
-  var queryTotal = `select count(*) as total from klubclantrener`;
-  var queryTotalFilter = `SELECT COUNT(*) AS total FROM klubclantrener WHERE true ${search_query}`;
+  var queryTotal = `select count(*) as total from clanklubtrener`;
+  var queryTotalFilter = `SELECT COUNT(*) AS total FROM clanklubtrener WHERE true ${search_query}`;
 
 database.query(queryTotal, function(error, data) {
   console.log(data);
@@ -76,7 +75,7 @@ database.query(queryTotal, function(error, data) {
       var total_records_with_filter = datarow["total"];
       console.log(total_records_with_filter);
       var query = `
-      SELECT * FROM klubclantrener
+      SELECT * FROM clanklubtrener
       WHERE true ${search_query} 
       ORDER BY ${column_name} ${column_sort_order} 
       LIMIT ${length} offset ${start}
@@ -98,7 +97,6 @@ database.query(queryTotal, function(error, data) {
             'ime_člana' : row["ime_člana"],
             'prezime_člana' : row["prezime_člana"],
             'datum_rođenja_člana' : row["datum_rođenja_člana"],
-            'uzrast' : row["uzrast"],
             'težina' : row["težina"],
             'spol' : row["spol"],
             'oib_trenera' : row["oib_trenera"],
@@ -124,11 +122,11 @@ database.query(queryTotal, function(error, data) {
 });
 
 router.get('/export', function(req, res, next) {
-  var filterquery = `select * from klubclantrener`;
+  var filterquery = `select * from clanklubtrener`;
   database.query(filterquery, function(error, data) {
     var sql_data = JSON.parse(JSON.stringify(data));
-    var file_header = ['naziv', 'godina_osnivanja', 'sjedište', 'država', 'email', 'oib_člana', 'broj_iskaznice_člana', 'ime_člana', 'prezime_člana', 'datum_rođenja_člana',
-    'uzrast', 'težina', 'spol', 'oib_trenera', 'ime_trenera', 'prezime_trenera', 'datum_rođenja_trenera', 'istek_licence'];
+    var file_header = ['naziv', 'godina_osnivanja', 'sjedište', 'država', 'email', 'oib_člana', 'broj_iskaznice_člana', 'ime_člana', 'prezime_člana', 'datum_rođenja_člana', 
+    'težina', 'spol', 'oib_trenera', 'ime_trenera', 'prezime_trenera', 'datum_rođenja_trenera', 'istek_licence'];
     var json_data = new data_exporter({file_header});
     var csv_data = json_data.parse(sql_data);
     res.setHeader("Content-Type", "text/csv");

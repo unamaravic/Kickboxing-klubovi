@@ -12,7 +12,7 @@ Tema projekta su kickboxing klubovi, a skup podataka sadrži njihove najvažnije
 - Autor: Una Maravić - <una.maravic@fer.hr>  
 - Jezik: hrvatski  
 - Licencija: CC0 - 1.0 license  
-- Verzija skupa podataka: 1.0  
+- Verzija skupa podataka: 2.0  
 - Opis atributa koji se nalaze u skupu:  
 
     | Ime atributa | Opis atributa | Tip atributa |
@@ -29,13 +29,12 @@ Tema projekta su kickboxing klubovi, a skup podataka sadrži njihove najvažnije
     | datumrođenja | datum rođenja osobe koja je u klubu | datum |
     | oib | identifikator osobe - primary key | varchar |
     | licencado | datum isteka trenerove licence | datum |
-    | uzrast | uzrasna kategorija u kojoj se natječe član kluba | varchar |
     | težina | težinska kategorija u kojoj se natječe član kluba | varchar |
     | spol | spol člana kluba | varchar |
 - Datum preuzimanja podataka:  31.10.2022.
 - Korisni linkovi: http://www.crokickboxing.hr/wp-content/uploads/2020/04/HKBS-status-%C4%8Dlanova-u-2020.-godini-rev.2-25.02.2020-za-objavu-1.pdf  
 - Ključne riječi: klub, kickboxing, trener, član
-- Posljednja izmjena u repozitoriju: 10.11.2022.
+- Posljednja izmjena u repozitoriju: 7.1.2023.
 - Dostupni formati podataka: CSV, JSON  
 
 

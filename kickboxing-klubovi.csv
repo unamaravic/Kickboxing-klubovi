@@ -1,29 +1,30 @@
-naziv,klubid,godinaosnivanja,sjedište,država,email,oib,briskaznice,ime,prezime,datumrođenja,klubid,uzrast,težina,spol,treneroib,trenerbriskaznice,trenerime,trenerprezime,trenerdatumrođenja,trenerklubid,licencado
-KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,12345678912,7,Iva,Grgić,2006-05-30,4,Juniori,-65 kg,Ž,44444444444,4,Marija,Marić,1980-04-04,4,2030-01-01
-KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,12345678911,6,Lorena,Horvat,2010-04-20,4,Kadeti,-37 kg,Ž,44444444444,4,Marija,Marić,1980-04-04,4,2030-01-01
-KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,12345678925,16,Senka,Božić,1994-10-10,4,Seniori,-70 kg,Ž,44444444444,4,Marija,Marić,1980-04-04,4,2030-01-01
-KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,12345678924,15,Nora,Stanić,2000-03-13,4,Seniori,-50 kg,Ž,44444444444,4,Marija,Marić,1980-04-04,4,2030-01-01
-KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,12345678927,18,Marta,Kovačić,2007-02-19,2,Kadeti,-55 kg,Ž,12345678913,8,Luka,Lukić,1970-06-10,2,2025-01-01
-KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,12345678922,13,Boris,Buntić,1999-03-18,2,Seniori,-91 kg,M,12345678913,8,Luka,Lukić,1970-06-10,2,2025-01-01
-KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,12345678920,11,Marina,Petrović,2008-08-28,2,Kadeti,-46 kg,Ž,12345678913,8,Luka,Lukić,1970-06-10,2,2025-01-01
-KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,33333333333,3,Mate,Matić,1993-03-03,2,Seniori,-75 kg,M,12345678913,8,Luka,Lukić,1970-06-10,2,2025-01-01
-KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,12345678926,17,Marin,Erlić,2001-12-14,1,Seniori,-69 kg,M,12345678914,9,Ivan,Babić,1965-07-21,1,2027-01-01
-KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,22222222222,2,Ivo,Ivić,2011-02-02,1,Kadeti,-69 kg,M,12345678914,9,Ivan,Babić,1965-07-21,1,2027-01-01
-KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,11111111111,1,Ana,Anić,2005-01-01,1,Juniori,-55 kg,Ž,12345678914,9,Ivan,Babić,1965-07-21,1,2027-01-01
-KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,12345678923,14,Željka,Mitrović,2005-05-10,3,Juniori,-60 kg,Ž,12345678915,10,Nora,Novak,1985-09-09,3,2028-01-01
-KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,12345678921,12,Zoran,Kovač,2004-06-21,3,Juniori,-84 kg,M,12345678915,10,Nora,Novak,1985-09-09,3,2028-01-01
-KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,12345678910,5,Petar,Petrić,1995-03-10,3,Seniori,-81 kg,M,12345678915,10,Nora,Novak,1985-09-09,3,2028-01-01
-KBK BUDOKAI-LABIN,5,1998,Labin,Hrvatska,faraguna1@gmail.com,98765432120,39,Ivano,Mesić,2005-12-11,5,Juniori,-74 kg,M,98765432100,19,Mia,Horvat,1990-10-10,5,2030-01-01
-KBK BUDOKAI-LABIN,5,1998,Labin,Hrvatska,faraguna1@gmail.com,98765432101,20,Gabrijel,Kovačević,2010-02-01,5,Kadeti,-42 kg,M,98765432100,19,Mia,Horvat,1990-10-10,5,2030-01-01
-KBK IVANIĆ GRAD,6,1998,Ivanić Grad,Hrvatska,ivica.spevec@gmail.com,98765432121,40,Eva,Petrić,2000-12-13,6,Seniori,-65 kg,Ž,98765432102,21,Luka,Blažević,1980-11-11,6,2029-02-01
-KBK IVANIĆ GRAD,6,1998,Ivanić Grad,Hrvatska,ivica.spevec@gmail.com,98765432103,22,Lara,Burić,2005-03-02,6,Juniori,-50 kg,Ž,98765432102,21,Luka,Blažević,1980-11-11,6,2029-02-01
-KBK JASTREB,7,1997,Jastrebarsko,Hrvatska,jastreb.derdic@gmail.com,98765432122,41,Marko,Herceg,2013-01-14,7,Kadeti,-52 kg,M,98765432104,23,David,Mlakar,1970-12-12,7,2028-03-01
-KBK JASTREB,7,1997,Jastrebarsko,Hrvatska,jastreb.derdic@gmail.com,98765432105,24,Ivan,Despot,1997-04-03,7,Seniori,-57 kg,M,98765432104,23,David,Mlakar,1970-12-12,7,2028-03-01
-KBK LEGEND,8,2010,Slatina,Hrvatska,sarko.marko@gmail.com,98765432107,26,Klara,Stanić,2011-05-04,8,Kadeti,-46 kg,Ž,98765432106,25,Jakov,Sertić,1960-01-01,8,2027-04-01
-KBK MLADOST,9,2011,Varaždin,Hrvatska,veceric@gmail.com,98765432109,28,Mihael,Tokić,2004-06-05,9,Juniori,-63 kg,M,98765432108,27,Lea,Filipović,1985-02-02,9,2026-05-01
-KBK PLANET SPORT,10,2005,Pula,Hrvatska,planetsport@hi.t-com.hr,98765432111,30,Iva,Tomić,1998-07-06,10,Seniori,-55 kg,Ž,98765432110,29,Elena,Katić,1975-03-03,10,2025-06-01
-KBK TIGAR,11,2010,Slunj,Hrvatska,bosanac.milenko@gmail.com,98765432113,32,Fran,Ilić,2009-08-07,11,Kadeti,-47 kg,M,98765432112,31,Niko,Jelić,1965-04-04,11,2024-07-01
-KBK VELEBIT,12,1999,Benkovac,Hrvatska,kbk.velebit@gmail.com,98765432115,34,Dora,Vukelić,2006-09-08,12,Juniori,-60 kg,Ž,98765432114,33,Matej,Šarić,1955-05-05,12,2023-08-01
-KBK ZMAJ,13,1999,Bedekovčina,Hrvatska,arpad.jaksa@gmail.com,98765432117,36,Jan,Ljubičić,1999-10-09,13,Seniori,-69 kg,M,98765432116,35,Toma,Brozović,1987-06-06,13,2024-09-01
-KBK OMEGA,14,2012,Slavonski Brod,Hrvatska,robert.katusic@gmail.com,98765432119,38,Franka,Barić,2012-11-10,14,Kadeti,-50 kg,Ž,98765432118,37,Petra,Leko,1977-07-07,14,2025-10-01
-KBK SUŠAK,15,1995,Rijeka,Hrvatska,branko.fibinger@gmail.com,45612378901,43,Vito,Juršić,2003-12-07,15,Juniori,-74 kg,M,45612378900,42,Branka,Jurišić,1953-12-07,15,2040-01-01
+naziv,klubid,godinaosnivanja,sjedište,država,email,briskazniceclana,imeclana,prezimeclana,datumrodenjaclana,oibclana,težina,spol,briskaznicetrenera,imetrenera,prezimetrenera,datumrodenjatrenera,oibtrenera,licencado
+KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,7,Iva,Grgić,2006-05-30,12345678912,65,Ž,4,Marija,Marić,1980-04-04,44444444444,2030-01-01
+KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,6,Lorena,Horvat,2010-04-20,12345678911,37,Ž,4,Marija,Marić,1980-04-04,44444444444,2030-01-01
+KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,16,Senka,Božić,1994-10-10,12345678925,70,Ž,4,Marija,Marić,1980-04-04,44444444444,2030-01-01
+KBK SPARTAN GYM,4,2006,Zagreb,Hrvatska,acopupac@gmail.com,15,Nora,Stanić,2000-03-13,12345678924,50,Ž,4,Marija,Marić,1980-04-04,44444444444,2030-01-01
+KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,18,Marta,Kovačić,2007-02-19,12345678927,55,Ž,8,Luka,Lukić,1970-06-10,12345678913,2025-01-01
+KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,13,Boris,Buntić,1999-03-18,12345678922,91,M,8,Luka,Lukić,1970-06-10,12345678913,2025-01-01
+KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,11,Marina,Petrović,2008-08-28,12345678920,46,Ž,8,Luka,Lukić,1970-06-10,12345678913,2025-01-01
+KBK IMPACT,2,2011,Našice,Hrvatska,stjepan.paska@gmail.com,3,Mate,Matić,1993-03-03,33333333333,75,M,8,Luka,Lukić,1970-06-10,12345678913,2025-01-01
+KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,17,Marin,Erlić,2001-12-14,12345678926,69,M,9,Ivan,Babić,1965-07-21,12345678914,2027-01-01
+KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,2,Ivo,Ivić,2011-02-02,22222222222,69,M,9,Ivan,Babić,1965-07-21,12345678914,2027-01-01
+KBK KUTINA,1,1998,Kutina,Hrvatska,josip.cerovec@sk.t-com.hr,1,Ana,Anić,2005-01-01,11111111111,55,Ž,9,Ivan,Babić,1965-07-21,12345678914,2027-01-01
+KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,14,Željka,Mitrović,2005-05-10,12345678923,60,Ž,10,Nora,Novak,1985-09-09,12345678915,2028-01-01
+KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,12,Zoran,Kovač,2004-06-21,12345678921,84,M,10,Nora,Novak,1985-09-09,12345678915,2028-01-01
+KBK BTI,3,1997,Zabok,Hrvatska,zvonko.kar@kr.t-com.hr,5,Petar,Petrić,1995-03-10,12345678910,81,M,10,Nora,Novak,1985-09-09,12345678915,2028-01-01
+KBK BUDOKAI-LABIN,5,1998,Labin,Hrvatska,faraguna1@gmail.com,39,Ivano,Mesić,2005-12-11,98765432120,74,M,19,Mia,Horvat,1990-10-10,98765432100,2030-01-01
+KBK BUDOKAI-LABIN,5,1998,Labin,Hrvatska,faraguna1@gmail.com,20,Gabrijel,Kovačević,2010-02-01,98765432101,42,M,19,Mia,Horvat,1990-10-10,98765432100,2030-01-01
+KBK IVANIĆ GRAD,6,1998,Ivanić Grad,Hrvatska,ivica.spevec@gmail.com,40,Eva,Petrić,2000-12-13,98765432121,65,Ž,21,Luka,Blažević,1980-11-11,98765432102,2029-02-01
+KBK IVANIĆ GRAD,6,1998,Ivanić Grad,Hrvatska,ivica.spevec@gmail.com,22,Lara,Burić,2005-03-02,98765432103,50,Ž,21,Luka,Blažević,1980-11-11,98765432102,2029-02-01
+KBK JASTREB,7,1997,Jastrebarsko,Hrvatska,jastreb.derdic@gmail.com,41,Marko,Herceg,2013-01-14,98765432122,52,M,23,David,Mlakar,1970-12-12,98765432104,2028-03-01
+KBK JASTREB,7,1997,Jastrebarsko,Hrvatska,jastreb.derdic@gmail.com,24,Ivan,Despot,1997-04-03,98765432105,57,M,23,David,Mlakar,1970-12-12,98765432104,2028-03-01
+KBK LEGEND,8,2010,Slatina,Hrvatska,sarko.marko@gmail.com,26,Klara,Stanić,2011-05-04,98765432107,46,Ž,25,Jakov,Sertić,1960-01-01,98765432106,2027-04-01
+KBK MLADOST,9,2011,Varaždin,Hrvatska,veceric@gmail.com,28,Mihael,Tokić,2004-06-05,98765432109,63,M,27,Lea,Filipović,1985-02-02,98765432108,2026-05-01
+KBK PLANET SPORT,10,2005,Pula,Hrvatska,planetsport@hi.t-com.hr,30,Iva,Tomić,1998-07-06,98765432111,55,Ž,29,Elena,Katić,1975-03-03,98765432110,2025-06-01
+KBK TIGAR,11,2010,Slunj,Hrvatska,bosanac.milenko@gmail.com,32,Fran,Ilić,2009-08-07,98765432113,47,M,31,Niko,Jelić,1965-04-04,98765432112,2024-07-01
+KBK VELEBIT,12,1999,Benkovac,Hrvatska,kbk.velebit@gmail.com,34,Dora,Vukelić,2006-09-08,98765432115,60,Ž,33,Matej,Šarić,1955-05-05,98765432114,2023-08-01
+KBK ZMAJ,13,1999,Bedekovčina,Hrvatska,arpad.jaksa@gmail.com,36,Jan,Ljubičić,1999-10-09,98765432117,69,M,35,Toma,Brozović,1987-06-06,98765432116,2024-09-01
+KBK OMEGA,14,2012,Slavonski Brod,Hrvatska,robert.katusic@gmail.com,38,Franka,Barić,2012-11-10,98765432119,50,Ž,37,Petra,Leko,1977-07-07,98765432118,2025-10-01
+KBK SUŠAK,15,1995,Rijeka,Hrvatska,branko.fibinger@gmail.com,43,Vito,Juršić,2003-12-07,45612378901,74,M,42,Branka,Jurišić,1953-12-07,45612378900,2040-01-01
+KBK KOBRA,32,2010,Bjelovar,Hrvatska,kobrabj@gmail.com,,,,,,,,,,,,,

@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         
-                        <table id="klubclantrener" class="table table-bordered">
+                        <table id="clanklubtrener" class="table table-bordered">
                             <thead>
                                 <tr>
                                   <th>Naziv</th>
@@ -36,7 +36,6 @@
                                   <th>Ime člana</th>
                                   <th>Prezime člana</th>
                                   <th>Datum rođenja člana</th>
-                                  <th>Uzrast</th>
                                   <th>Težina</th>
                                   <th>Spol</th>
                                   <th>OIB trenera</th>
@@ -66,7 +65,7 @@
 
 <script>
   $(document).ready(function(){
-    var dataTable = $('#klubclantrener').DataTable({
+    var dataTable = $('#clanklubtrener').DataTable({
       'processing': true,
       'serverSide': true,
       'serverMethod' : 'get',
@@ -85,7 +84,6 @@
         { data : 'ime_člana' },
         { data : 'prezime_člana' },
         { data : 'datum_rođenja_člana' },
-        { data : 'uzrast' },
         { data : 'težina' },
         { data : 'spol' },
         { data : 'oib_trenera' },

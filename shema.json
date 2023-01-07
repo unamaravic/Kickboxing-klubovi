@@ -66,10 +66,6 @@
 							"type": "integer", 
 							"description": "Identifikator kluba"
 						},
-						"uzrast": {
-							"type": "string", 
-							"description": "Dobna kategorija člana"
-						},
 						"težina": {
 							"type": "string", 
 							"description": "Težinska kategorija člana"
@@ -80,7 +76,7 @@
 						}
 					},
 					"required": [
-						"oib", "briskaznice", "ime", "prezime", "datumrođenja", "klubid", "uzrast", "težina", "spol"
+						"oib", "briskaznice", "ime", "prezime", "datumrođenja", "klubid", "težina", "spol"
 					]
 				}
 			},

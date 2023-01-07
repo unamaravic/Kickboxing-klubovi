@@ -5,7 +5,32 @@ const openapi = require('../../openapi.json');
 const getKlubovi = (req, res) => {
     pool.query(queries.getKlubovi, (error, results) => {
         if (error)  res.setHeader('Content-Type', 'application/json').status(500).json({"Status": 500, "message": "Problem sa serverom", "response": {}});
-        res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": results.rows});
+        const salji = new Array(); 
+        for (let i = 0; i < results.rowCount; i++) {
+            var red = results.rows[i];
+            var redpush = {
+                "@context" : {
+                    "@vocab": "https://schema.org",
+                    "klubid": "identifier",
+                    "naziv": "name",
+                    "godinaosnivanja": "foundingDate",
+                    "država": "addressCountry",
+                    "sjedište": "addressLocality",
+                }, 
+                "@type": "SportsTeam",
+                "klubid": red["klubid"], //klubid
+                "naziv": red["naziv"], //naziv
+                "godinaosnivanja": red["godinaosnivanja"], //godinaosnivanja
+                "location": {
+                    "@type": "PostalAddress", 
+                    "država": red["država"], //addressCountry
+                    "sjedište": red["sjedište"] //sjedište 
+                },
+                "email": red["email"], //email                   
+            }
+            salji.push(redpush);
+        } 
+        res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": salji});
     });
 };
 
@@ -20,7 +45,28 @@ const getKlubById = (req, res) => {
         }
         else { 
             if (error)  res.setHeader('Content-Type', 'application/json').status(500).json({"Status": 500, "message": "Problem sa serverom", "response": {}});
-            res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": results.rows});
+            var red = results.rows[0];
+            const redpush = {
+                "@context" : {
+                    "@vocab": "https://schema.org",                       
+                    "klubid": "identifier",
+                    "naziv": "name",
+                    "godinaosnivanja": "foundingDate",
+                    "država": "addressCountry",
+                    "sjedište": "addressLocality",
+                },
+                "@type": "SportsTeam",
+                "klubid": red["klubid"], //klubid
+                "naziv": red["naziv"], //naziv
+                "godinaosnivanja": red["godinaosnivanja"], //godinaosnivanja
+                "location": {
+                    "@type": "PostalAddress", 
+                    "država": red["država"], //addressCountry
+                    "sjedište": red["sjedište"] //sjedište 
+                },
+                "email": red["email"], //email    
+            }
+            res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": redpush});
         }
     })
 };
@@ -86,7 +132,65 @@ const updateKlub = (req, res) => {
 const getKickboxingKlubovi = (req, res) => {
     pool.query(queries.getKickboxingKlubovi, [], (error, results) => {
         if (error)  res.setHeader('Content-Type', 'application/json').status(500).json({"Status": 500, "message": "Problem sa serverom", "response": {}});
-        res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": results.rows});
+        const salji = new Array(); 
+        for (let i = 0; i < results.rowCount; i++) {
+            var red = results.rows[i];
+            var redpush = {
+                "@context" : {
+                    "@vocab": "https://schema.org",
+                    "licencado": "https://schema.org/Date",
+                    "imeclana": "givenName",
+                    "prezimeclana": "familyName",
+                    "spol": "gender",
+                    "datumrodenjaclana": "birthDate",
+                    "briskazniceclana": "identifier",
+                    "oibclana": "identifier",
+                    "težina": "weight",
+                    "klubid": "identifier",
+                    "naziv": "name",
+                    "godinaosnivanja": "foundingDate",
+                    "država": "addressCountry",
+                    "sjedište": "addressLocality",
+                    "imetrenera": "givenName",
+                    "prezimetrenera": "familyName",
+                    "datumrodenjatrenera": "birthDate",
+                    "briskaznicetrenera": "identifier",
+                    "oibtrenera": "identifier"
+                },
+                "@type": "Person",
+                "imeclana": red["imeclana"],//imeclana
+                "prezimeclana": red["prezimeclana"], //prezimeclana
+                "spol": red["spol"], //spol
+                "datumrodenjaclana": red["datumrodenjaclana"], //datumrodenjaclana
+                "briskazniceclana": red["briskazniceclana"], //briskazniceclana
+                "licencado": red["licencado"], //licencado
+                "težina": red["težina"],
+                "oibclana": red["oibclana"],              
+                "memberOf": {
+                    "@type": "SportsTeam",
+                    "klubid": red["klubid"], //klubid
+                    "naziv": red["naziv"], //naziv
+                    "godinaosnivanja": red["godinaosnivanja"], //godinaosnivanja
+                    "location": {
+                        "@type": "PostalAddress", 
+                        "država": red["država"], //addressCountry
+                        "sjedište": red["sjedište"] //sjedište 
+                    },
+                    "email": red["email"], //email
+                    "coach": {
+                        "@type": "Person", 
+                        "imetrenera": red["imetrenera"], //imetrenera
+                        "prezimetrenera": red["prezimetrenera"], //prezimetrenera
+                        "datumrodenjatrenera": red["datumrodenjatrenera"], //datumrođenjatrenera
+                        "briskaznicetrenera": red["briskaznicetrenera"], //briskaznicetrenera,
+                        "oibtrenera": red["oibtrenera"],
+                        "licencado": red["licencado"]
+                    }
+                }
+            };
+            salji.push(redpush);
+        }
+        res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": salji});
     })
 }
 
@@ -104,7 +208,61 @@ const getClanKlubTrener = (req, res) => {
         }
         else { 
             if (error)  res.setHeader('Content-Type', 'application/json').status(500).json({"Status": 500, "message": "Problem sa serverom", "response": {}});
-            res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": results.rows});
+            var red = results.rows[0];
+            var redpush = {
+                "@context" : {
+                    "@vocab": "https://schema.org",
+                    "licencado": "https://schema.org/Date",
+                    "imeclana": "givenName",
+                    "prezimeclana": "familyName",
+                    "spol": "gender",
+                    "datumrodenjaclana": "birthDate",
+                    "briskazniceclana": "identifier",
+                    "oibclana": "identifier",
+                    "težina": "weight",
+                    "klubid": "identifier",
+                    "naziv": "name",
+                    "godinaosnivanja": "foundingDate",
+                    "država": "addressCountry",
+                    "sjedište": "addressLocality",
+                    "imetrenera": "givenName",
+                    "prezimetrenera": "familyName",
+                    "datumrodenjatrenera": "birthDate",
+                    "briskaznicetrenera": "identifier",
+                    "oibtrenera": "identifier"
+                },
+                "@type": "Person",
+                "imeclana": red["imeclana"],//imeclana
+                "prezimeclana": red["prezimeclana"], //prezimeclana
+                "spol": red["spol"], //spol
+                "datumrodenjaclana": red["datumrodenjaclana"], //datumrodenjaclana
+                "briskazniceclana": red["briskazniceclana"], //briskazniceclana
+                "licencado": red["licencado"], //licencado
+                "težina": red["težina"],
+                "oibclana": red["oibclana"],              
+                "memberOf": {
+                    "@type": "SportsTeam",
+                    "klubid": red["klubid"], //klubid
+                    "naziv": red["naziv"], //naziv
+                    "godinaosnivanja": red["godinaosnivanja"], //godinaosnivanja
+                    "location": {
+                        "@type": "PostalAddress", 
+                        "država": red["država"], //addressCountry
+                        "sjedište": red["sjedište"] //sjedište 
+                    },
+                    "email": red["email"], //email
+                    "coach": {
+                        "@type": "Person", 
+                        "imetrenera": red["imetrenera"], //imetrenera
+                        "prezimetrenera": red["prezimetrenera"], //prezimetrenera
+                        "datumrodenjatrenera": red["datumrodenjatrenera"], //datumrođenjatrenera
+                        "briskaznicetrenera": red["briskaznicetrenera"], //briskaznicetrenera,
+                        "oibtrenera": red["oibtrenera"],
+                        "licencado": red["licencado"]
+                    }
+                }
+            };
+            res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": redpush});
         }
     })
 }
@@ -112,14 +270,63 @@ const getClanKlubTrener = (req, res) => {
 const getClanovi = (req, res) => {
     pool.query(queries.getClanovi, [], (error, results) => {
         if (error)  res.setHeader('Content-Type', 'application/json').status(500).json({"Status": 500, "message": "Problem sa serverom", "response": {}});
-        res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": results.rows});
+        var salji = new Array(); 
+        for (let i = 0; i < results.rowCount; i++) {
+            var red = results.rows[i];
+            var redpush = {
+                "@context" : {
+                    "@vocab": "https://schema.org",
+                    "imeclana": "givenName",
+                    "prezimeclana": "familyName",
+                    "spol": "gender",
+                    "datumrodenjaclana": "birthDate",
+                    "briskazniceclana": "identifier",
+                    "oibclana": "identifier",
+                    "težina": "weight"
+                },
+                "@type": "Person",
+                "imeclana": red["imeclana"],//imeclana
+                "prezimeclana": red["prezimeclana"], //prezimeclana
+                "spol": red["spol"], //spol
+                "datumrodenjaclana": red["datumrodenjaclana"], //datumrodenjaclana
+                "briskazniceclana": red["briskazniceclana"], //briskazniceclana
+                "licencado": red["licencado"], //licencado
+                "težina": red["težina"],
+                "oibclana": red["oibclana"]
+            };
+            salji.push(redpush);
+        }
+        res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": salji});
     })
 }
 
 const getTreneri = (req, res) => {
     pool.query(queries.getTreneri, [], (error, results) => {
         if (error)  res.setHeader('Content-Type', 'application/json').status(500).json({"Status": 500, "message": "Problem sa serverom", "response": {}});
-        res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": results.rows});
+        var salji = new Array(); 
+        for (let i = 0; i < results.rowCount; i++) {
+            var red = results.rows[i];
+            var redpush = {
+                "@context" : {
+                    "@vocab": "https://schema.org",
+                    "licencado": "https://schema.org/Date",
+                    "imetrenera": "givenName",
+                    "prezimetrenera": "familyName",
+                    "datumrodenjatrenera": "birthDate",
+                    "briskaznicetrenera": "identifier",
+                    "oibtrenera": "identifier"
+                },               
+                "@type": "Person", 
+                "imetrenera": red["imetrenera"], //imetrenera
+                "prezimetrenera": red["prezimetrenera"], //prezimetrenera
+                "datumrodenjatrenera": red["datumrodenjatrenera"], //datumrođenjatrenera
+                "briskaznicetrenera": red["briskaznicetrenera"], //briskaznicetrenera,
+                "oibtrenera": red["oibtrenera"],
+                "licencado": red["licencado"]
+            }
+            salji.push(redpush);
+        }
+        res.setHeader('Content-Type', 'application/json').status(200).json({"Status": 200, "message": "Uspješno dohvaćeni podaci", "response": salji});
     })
 }
 

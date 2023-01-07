@@ -5,7 +5,7 @@
 -- Dumped from database version 14.2
 -- Dumped by pg_dump version 14.2
 
--- Started on 2022-11-10 21:52:43
+-- Started on 2023-01-07 21:54:07
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -45,7 +45,6 @@ ALTER TABLE public.osoba OWNER TO postgres;
 --
 
 CREATE TABLE public."Član" (
-    uzrast character varying(10) NOT NULL,
     "težina" character varying(10) NOT NULL,
     spol character varying(1) NOT NULL,
     oib character varying(11) NOT NULL
@@ -55,18 +54,17 @@ CREATE TABLE public."Član" (
 ALTER TABLE public."Član" OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 18225)
+-- TOC entry 215 (class 1259 OID 26816)
 -- Name: clanosoba; Type: VIEW; Schema: public; Owner: postgres
 --
 
 CREATE VIEW public.clanosoba AS
- SELECT osoba.oib,
-    osoba.briskaznice,
-    osoba.ime,
-    osoba.prezime,
-    osoba."datumrođenja",
+ SELECT osoba.briskaznice AS briskazniceclana,
+    osoba.ime AS imeclana,
+    osoba.prezime AS prezimeclana,
+    osoba."datumrođenja" AS datumrodenjaclana,
+    osoba.oib AS oibclana,
     osoba.klubid,
-    "Član".uzrast,
     "Član"."težina",
     "Član".spol
    FROM (public.osoba
@@ -106,16 +104,16 @@ CREATE TABLE public.trener (
 ALTER TABLE public.trener OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 18233)
+-- TOC entry 216 (class 1259 OID 26820)
 -- Name: trenerosoba; Type: VIEW; Schema: public; Owner: postgres
 --
 
 CREATE VIEW public.trenerosoba AS
- SELECT osoba.oib,
-    osoba.briskaznice,
-    osoba.ime,
-    osoba.prezime,
-    osoba."datumrođenja",
+ SELECT osoba.briskaznice AS briskaznicetrenera,
+    osoba.ime AS imetrenera,
+    osoba.prezime AS prezimetrenera,
+    osoba."datumrođenja" AS datumrodenjatrenera,
+    osoba.oib AS oibtrenera,
     osoba.klubid,
     trener.licencado
    FROM (public.osoba
@@ -125,34 +123,43 @@ CREATE VIEW public.trenerosoba AS
 ALTER TABLE public.trenerosoba OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 18262)
--- Name: fakultetsmjerjsonv2; Type: VIEW; Schema: public; Owner: postgres
+-- TOC entry 217 (class 1259 OID 26824)
+-- Name: clanklubtrener; Type: VIEW; Schema: public; Owner: postgres
 --
 
-CREATE VIEW public.fakultetsmjerjsonv2 AS
+CREATE VIEW public.clanklubtrener AS
  SELECT klub.naziv,
     klub.klubid,
     klub.godinaosnivanja,
     klub."sjedište",
     klub."država",
     klub.email,
-    ( SELECT json_agg(row_to_json(clanosoba.*)) AS json_agg
-           FROM public.clanosoba
-          WHERE (clanosoba.klubid = klub.klubid)) AS "Članovi",
-    ( SELECT row_to_json(trenerosoba.*) AS row_to_json
-           FROM public.trenerosoba
-          WHERE (trenerosoba.klubid = klub.klubid)) AS trener
-   FROM public.klub;
+    clanosoba.briskazniceclana,
+    clanosoba.imeclana,
+    clanosoba.prezimeclana,
+    clanosoba.datumrodenjaclana,
+    clanosoba.oibclana,
+    clanosoba."težina",
+    clanosoba.spol,
+    trenerosoba.briskaznicetrenera,
+    trenerosoba.imetrenera,
+    trenerosoba.prezimetrenera,
+    trenerosoba.datumrodenjatrenera,
+    trenerosoba.oibtrenera,
+    trenerosoba.licencado
+   FROM ((public.klub
+     LEFT JOIN public.clanosoba USING (klubid))
+     FULL JOIN public.trenerosoba ON ((trenerosoba.klubid = klub.klubid)));
 
 
-ALTER TABLE public.fakultetsmjerjsonv2 OWNER TO postgres;
+ALTER TABLE public.clanklubtrener OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 18266)
--- Name: fakultetsmjerjsonv21; Type: VIEW; Schema: public; Owner: postgres
+-- TOC entry 218 (class 1259 OID 26833)
+-- Name: kickboxingklubovijson; Type: VIEW; Schema: public; Owner: postgres
 --
 
-CREATE VIEW public.fakultetsmjerjsonv21 AS
+CREATE VIEW public.kickboxingklubovijson AS
  SELECT klub.naziv,
     klub.klubid,
     klub.godinaosnivanja,
@@ -168,161 +175,7 @@ CREATE VIEW public.fakultetsmjerjsonv21 AS
    FROM public.klub;
 
 
-ALTER TABLE public.fakultetsmjerjsonv21 OWNER TO postgres;
-
---
--- TOC entry 215 (class 1259 OID 18215)
--- Name: kickboxingklubovijson; Type: VIEW; Schema: public; Owner: postgres
---
-
-CREATE VIEW public.kickboxingklubovijson AS
- SELECT klub.naziv,
-    klub.klubid,
-    klub.godinaosnivanja,
-    klub."sjedište",
-    klub."država",
-    klub.email,
-    ( SELECT json_agg(row_to_json("Član".*)) AS json_agg
-           FROM (public."Član"
-             LEFT JOIN public.osoba USING (oib))
-          WHERE (klub.klubid = osoba.klubid)) AS json_agg
-   FROM public.klub;
-
-
 ALTER TABLE public.kickboxingklubovijson OWNER TO postgres;
-
---
--- TOC entry 216 (class 1259 OID 18220)
--- Name: kickboxingklubovijson1; Type: VIEW; Schema: public; Owner: postgres
---
-
-CREATE VIEW public.kickboxingklubovijson1 AS
- SELECT klub.naziv,
-    klub.klubid,
-    klub.godinaosnivanja,
-    klub."sjedište",
-    klub."država",
-    klub.email,
-    ( SELECT json_agg(row_to_json("Član".*)) AS json_agg
-           FROM (public."Član"
-             JOIN public.osoba USING (oib))
-          WHERE (klub.klubid = osoba.klubid)) AS "članovi"
-   FROM public.klub;
-
-
-ALTER TABLE public.kickboxingklubovijson1 OWNER TO postgres;
-
---
--- TOC entry 218 (class 1259 OID 18229)
--- Name: kickboxingklubovijson2; Type: VIEW; Schema: public; Owner: postgres
---
-
-CREATE VIEW public.kickboxingklubovijson2 AS
- SELECT klub.naziv,
-    klub.klubid,
-    klub.godinaosnivanja,
-    klub."sjedište",
-    klub."država",
-    klub.email,
-    ( SELECT json_agg(clanosoba.*) AS json_agg
-           FROM public.clanosoba
-          WHERE (klub.klubid = clanosoba.klubid)) AS "članovi"
-   FROM public.klub;
-
-
-ALTER TABLE public.kickboxingklubovijson2 OWNER TO postgres;
-
---
--- TOC entry 220 (class 1259 OID 18237)
--- Name: kickboxingklubovijson3; Type: VIEW; Schema: public; Owner: postgres
---
-
-CREATE VIEW public.kickboxingklubovijson3 AS
- SELECT klub.naziv,
-    klub.klubid,
-    klub.godinaosnivanja,
-    klub."sjedište",
-    klub."država",
-    klub.email,
-    ( SELECT json_agg(row_to_json(clanosoba.*)) AS json_agg
-           FROM public.clanosoba
-          WHERE (klub.klubid = clanosoba.klubid)) AS "članovi",
-    ( SELECT json_agg(row_to_json(trenerosoba.*)) AS json_agg
-           FROM public.trenerosoba
-          WHERE (klub.klubid = trenerosoba.klubid)) AS treneri
-   FROM public.klub;
-
-
-ALTER TABLE public.kickboxingklubovijson3 OWNER TO postgres;
-
---
--- TOC entry 221 (class 1259 OID 18241)
--- Name: kickboxingklubovijson4; Type: VIEW; Schema: public; Owner: postgres
---
-
-CREATE VIEW public.kickboxingklubovijson4 AS
- SELECT klub.naziv,
-    klub.klubid,
-    klub.godinaosnivanja,
-    klub."sjedište",
-    klub."država",
-    klub.email,
-    ( SELECT json_agg(row_to_json(clanosoba.*)) AS json_agg
-           FROM public.clanosoba
-          WHERE (klub.klubid = clanosoba.klubid)) AS "članovi",
-    ( SELECT json_agg(row_to_json(trenerosoba.*)) AS json_agg
-           FROM public.trenerosoba
-          WHERE (klub.klubid = trenerosoba.klubid)) AS trener
-   FROM public.klub;
-
-
-ALTER TABLE public.kickboxingklubovijson4 OWNER TO postgres;
-
---
--- TOC entry 222 (class 1259 OID 18254)
--- Name: kickboxingklubovijson5; Type: VIEW; Schema: public; Owner: postgres
---
-
-CREATE VIEW public.kickboxingklubovijson5 AS
- SELECT klub.naziv,
-    klub.klubid,
-    klub.godinaosnivanja,
-    klub."sjedište",
-    klub."država",
-    klub.email,
-    ( SELECT json_agg(row_to_json(clanosoba.*)) AS json_agg
-           FROM public.clanosoba
-          WHERE (klub.klubid = clanosoba.klubid)) AS "članovi",
-    ( SELECT row_to_json(trenerosoba.*) AS row_to_json
-           FROM public.trenerosoba
-          WHERE (klub.klubid = trenerosoba.klubid)) AS trener
-   FROM public.klub;
-
-
-ALTER TABLE public.kickboxingklubovijson5 OWNER TO postgres;
-
---
--- TOC entry 223 (class 1259 OID 18258)
--- Name: kickboxingklubovijsontest; Type: VIEW; Schema: public; Owner: postgres
---
-
-CREATE VIEW public.kickboxingklubovijsontest AS
- SELECT klub.naziv,
-    klub.klubid,
-    klub.godinaosnivanja,
-    klub."sjedište",
-    klub."država",
-    klub.email,
-    ( SELECT json_agg(row_to_json(clanosoba.*)) AS json_agg
-           FROM public.clanosoba
-          WHERE (klub.klubid = clanosoba.klubid)) AS "članovi",
-    ( SELECT row_to_json(trenerosoba.*) AS row_to_json
-           FROM public.trenerosoba
-          WHERE (klub.klubid = trenerosoba.klubid)) AS trener
-   FROM public.klub;
-
-
-ALTER TABLE public.kickboxingklubovijsontest OWNER TO postgres;
 
 --
 -- TOC entry 209 (class 1259 OID 18174)
@@ -341,7 +194,7 @@ CREATE SEQUENCE public.klub_klubid_seq
 ALTER TABLE public.klub_klubid_seq OWNER TO postgres;
 
 --
--- TOC entry 3397 (class 0 OID 0)
+-- TOC entry 3362 (class 0 OID 0)
 -- Dependencies: 209
 -- Name: klub_klubid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -366,7 +219,7 @@ CREATE SEQUENCE public.osoba_briskaznice_seq
 ALTER TABLE public.osoba_briskaznice_seq OWNER TO postgres;
 
 --
--- TOC entry 3398 (class 0 OID 0)
+-- TOC entry 3363 (class 0 OID 0)
 -- Dependencies: 211
 -- Name: osoba_briskaznice_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -375,7 +228,7 @@ ALTER SEQUENCE public.osoba_briskaznice_seq OWNED BY public.osoba.briskaznice;
 
 
 --
--- TOC entry 3221 (class 2604 OID 18178)
+-- TOC entry 3193 (class 2604 OID 18178)
 -- Name: klub klubid; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -383,7 +236,7 @@ ALTER TABLE ONLY public.klub ALTER COLUMN klubid SET DEFAULT nextval('public.klu
 
 
 --
--- TOC entry 3222 (class 2604 OID 18185)
+-- TOC entry 3194 (class 2604 OID 18185)
 -- Name: osoba briskaznice; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -391,7 +244,7 @@ ALTER TABLE ONLY public.osoba ALTER COLUMN briskaznice SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 3387 (class 0 OID 18175)
+-- TOC entry 3352 (class 0 OID 18175)
 -- Dependencies: 210
 -- Data for Name: klub; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -412,11 +265,12 @@ KBK VELEBIT	12	1999	Benkovac	Hrvatska	kbk.velebit@gmail.com
 KBK ZMAJ	13	1999	Bedekovčina	Hrvatska	arpad.jaksa@gmail.com
 KBK OMEGA	14	2012	Slavonski Brod	Hrvatska	robert.katusic@gmail.com
 KBK SUŠAK	15	1995	Rijeka	Hrvatska	branko.fibinger@gmail.com
+KBK KOBRA	32	2010	Bjelovar	Hrvatska	kobrabj@gmail.com
 \.
 
 
 --
--- TOC entry 3389 (class 0 OID 18182)
+-- TOC entry 3354 (class 0 OID 18182)
 -- Dependencies: 212
 -- Data for Name: osoba; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -469,7 +323,7 @@ COPY public.osoba (briskaznice, ime, prezime, "datumrođenja", oib, klubid) FROM
 
 
 --
--- TOC entry 3391 (class 0 OID 18205)
+-- TOC entry 3356 (class 0 OID 18205)
 -- Dependencies: 214
 -- Data for Name: trener; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -494,54 +348,54 @@ COPY public.trener (licencado, oib) FROM stdin;
 
 
 --
--- TOC entry 3390 (class 0 OID 18195)
+-- TOC entry 3355 (class 0 OID 18195)
 -- Dependencies: 213
 -- Data for Name: Član; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public."Član" (uzrast, "težina", spol, oib) FROM stdin;
-Juniori	-55 kg	Ž	11111111111
-Kadeti	-69 kg	M	22222222222
-Seniori	-75 kg	M	33333333333
-Seniori	-81 kg	M	12345678910
-Kadeti	-46 kg	Ž	12345678920
-Juniori	-84 kg	M	12345678921
-Seniori	-91 kg	M	12345678922
-Juniori	-60 kg	Ž	12345678923
-Seniori	-50 kg	Ž	12345678924
-Seniori	-70 kg	Ž	12345678925
-Seniori	-69 kg	M	12345678926
-Kadeti	-55 kg	Ž	12345678927
-Kadeti	-42 kg	M	98765432101
-Juniori	-50 kg	Ž	98765432103
-Seniori	-57 kg	M	98765432105
-Kadeti	-46 kg	Ž	98765432107
-Juniori	-63 kg	M	98765432109
-Seniori	-55 kg	Ž	98765432111
-Kadeti	-47 kg	M	98765432113
-Juniori	-60 kg	Ž	98765432115
-Seniori	-69 kg	M	98765432117
-Kadeti	-50 kg	Ž	98765432119
-Juniori	-74 kg	M	98765432120
-Seniori	-65 kg	Ž	98765432121
-Kadeti	-52 kg	M	98765432122
-Kadeti	-37 kg	Ž	12345678911
-Juniori	-65 kg	Ž	12345678912
-Juniori	-74 kg	M	45612378901
+COPY public."Član" ("težina", spol, oib) FROM stdin;
+55	Ž	11111111111
+69	M	22222222222
+75	M	33333333333
+81	M	12345678910
+46	Ž	12345678920
+84	M	12345678921
+91	M	12345678922
+60	Ž	12345678923
+50	Ž	12345678924
+70	Ž	12345678925
+69	M	12345678926
+55	Ž	12345678927
+42	M	98765432101
+50	Ž	98765432103
+57	M	98765432105
+46	Ž	98765432107
+63	M	98765432109
+55	Ž	98765432111
+47	M	98765432113
+60	Ž	98765432115
+69	M	98765432117
+50	Ž	98765432119
+74	M	98765432120
+65	Ž	98765432121
+52	M	98765432122
+37	Ž	12345678911
+65	Ž	12345678912
+74	M	45612378901
 \.
 
 
 --
--- TOC entry 3399 (class 0 OID 0)
+-- TOC entry 3364 (class 0 OID 0)
 -- Dependencies: 209
 -- Name: klub_klubid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.klub_klubid_seq', 15, true);
+SELECT pg_catalog.setval('public.klub_klubid_seq', 33, true);
 
 
 --
--- TOC entry 3400 (class 0 OID 0)
+-- TOC entry 3365 (class 0 OID 0)
 -- Dependencies: 211
 -- Name: osoba_briskaznice_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -550,7 +404,7 @@ SELECT pg_catalog.setval('public.osoba_briskaznice_seq', 44, true);
 
 
 --
--- TOC entry 3224 (class 2606 OID 18180)
+-- TOC entry 3196 (class 2606 OID 18180)
 -- Name: klub klub_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -559,7 +413,7 @@ ALTER TABLE ONLY public.klub
 
 
 --
--- TOC entry 3226 (class 2606 OID 18189)
+-- TOC entry 3198 (class 2606 OID 18189)
 -- Name: osoba osoba_briskaznice_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -568,7 +422,7 @@ ALTER TABLE ONLY public.osoba
 
 
 --
--- TOC entry 3228 (class 2606 OID 18187)
+-- TOC entry 3200 (class 2606 OID 18187)
 -- Name: osoba osoba_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -577,7 +431,7 @@ ALTER TABLE ONLY public.osoba
 
 
 --
--- TOC entry 3232 (class 2606 OID 18209)
+-- TOC entry 3204 (class 2606 OID 18209)
 -- Name: trener trener_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -586,7 +440,7 @@ ALTER TABLE ONLY public.trener
 
 
 --
--- TOC entry 3230 (class 2606 OID 18199)
+-- TOC entry 3202 (class 2606 OID 18199)
 -- Name: Član Član_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -595,7 +449,7 @@ ALTER TABLE ONLY public."Član"
 
 
 --
--- TOC entry 3233 (class 2606 OID 18190)
+-- TOC entry 3205 (class 2606 OID 18190)
 -- Name: osoba osoba_klubid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -604,7 +458,7 @@ ALTER TABLE ONLY public.osoba
 
 
 --
--- TOC entry 3235 (class 2606 OID 18210)
+-- TOC entry 3207 (class 2606 OID 18210)
 -- Name: trener trener_oib_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -613,7 +467,7 @@ ALTER TABLE ONLY public.trener
 
 
 --
--- TOC entry 3234 (class 2606 OID 18200)
+-- TOC entry 3206 (class 2606 OID 18200)
 -- Name: Član Član_oib_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -621,7 +475,7 @@ ALTER TABLE ONLY public."Član"
     ADD CONSTRAINT "Član_oib_fkey" FOREIGN KEY (oib) REFERENCES public.osoba(oib);
 
 
--- Completed on 2022-11-10 21:52:43
+-- Completed on 2023-01-07 21:54:07
 
 --
 -- PostgreSQL database dump complete
