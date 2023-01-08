@@ -16,9 +16,14 @@
 </head>
 <body>
     <nav>
-        <ul>
+        <ul class="izbornik">
+            <% if (prijavljen == false) {%>
             <li><a href="/login">Prijava</a></li>
+            <% } else { %>
             <li><a href="/logout">Odjava</a></li>
+            <li><a href="/profil">Korisnički profil</a></li>
+            <li><a href="/osvjezipreslike">Osvježi preslike</a></li> 
+            <% } %>
         </ul>
     </nav>
     <div class="naslov">

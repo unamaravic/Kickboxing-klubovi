@@ -17,6 +17,7 @@ const config = {
 
 var indexRouter = require('./routes/index');
 var datatableRouter = require('./routes/datatable');
+var profilRouter = require('./routes/profil');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use(auth(config));
 
 app.use('/', indexRouter);
 app.use('/datatable', datatableRouter);
+app.use('/profil', profilRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
